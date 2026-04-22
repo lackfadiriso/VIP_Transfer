@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Order
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'full_name',
+        'pick_up_location',
+        'drop_off_location',
+        'pick_up_date',
+        'created_at',
+    )
+    ordering = ('created_at',)
