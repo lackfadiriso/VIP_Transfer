@@ -1,3 +1,4 @@
+from datetime import date
 from rest_framework import serializers
 
 from .models import Order
@@ -16,6 +17,11 @@ class OrderSerializer(serializers.ModelSerializer):
             'pick_up_date',
             'passenger_count',
         ]
+
+    def validate_pick_up_date(self, value):
+        if value.date() < date.today():
+            raise serializers.ValidationError('Geçmiş tarih seçilemez.')
+        return value
 
 
 class MyOrdersSerializer(serializers.ModelSerializer):
