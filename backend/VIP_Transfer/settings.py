@@ -59,7 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+]
 
 ROOT_URLCONF = 'VIP_Transfer.urls'
 
@@ -116,7 +118,7 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.AnonRateThrottle'
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '5/day'
+        'anon': '10000/day'
     }
 }
 
