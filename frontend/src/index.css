@@ -1,0 +1,12 @@
+.diamond-text {
+  background: linear-gradient(135deg, #535edb, #dfefff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html, body, #root{
+  height: 100%;
+  margin: 0;
+  background: rgba(102, 126, 235, 0.422);
+}
