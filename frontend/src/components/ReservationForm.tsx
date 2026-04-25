@@ -6,6 +6,7 @@ import type { CreateOrder } from '../types'
 const ReservationForm = () => {
   const [passengerCount, setPassengerCount] = useState<number>(1)
   const [message, setMessage] = useState<string>('')
+  const [color, setColor] = useState<string>('success')
   const [formData, setFormData] = useState<CreateOrder>({
     full_name: '',
     phone: '',
@@ -21,10 +22,34 @@ const ReservationForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    try{
     await api.post('orders/', {
       ...formData,
       passenger_count: passengerCount
     })
+    setColor('success')
+    setMessage('Reservation request created successfully. You can track the status on the "My Reservation" page.')
+    }catch (error: any) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          setColor('danger')
+          if (error.response.data?.phone){
+            setMessage('You are have a reservation')
+          } else{
+            setMessage('Invalid data submitted.')
+          }
+           
+        } else if (error.response.status >= 500) {
+          setColor('warning')
+          setMessage('Server error.')
+        } else {
+          setMessage('An unknown error occurred.')
+        }
+      } else {
+        setColor('danger')
+        setMessage('Network error.')
+      }
+    }
   }
 
   return (
@@ -73,7 +98,9 @@ const ReservationForm = () => {
           </Col>
           <Col md={12} className='text-center mt-4'>
             <Button type='submit'>Create Reservation</Button>
-            <span className='text-success' onChange={(e) => setMessage(e.target.value)}>{message}</span>
+          </Col>
+          <Col md={12} className={`text-${color} text-center`}>
+            <span>{message}</span>
           </Col>
         </Row>
       </Form>
