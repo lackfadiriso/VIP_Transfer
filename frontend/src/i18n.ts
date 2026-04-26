@@ -1,0 +1,97 @@
+import i18n from "i18next"
+import { initReactI18next } from "react-i18next"
+
+i18n.use(initReactI18next).init({
+  resources: {
+    tr: {
+      translation: {
+        my_reservation: 'Rezervasyonum',
+        full_name: 'Ad Soyad',
+        phone: 'Telefon Numarası',
+        pick_up_location: 'Nereden',
+        drop_off_location: 'Nereye',
+        pick_up_date: 'Tarih ve Saat',
+        passenger_count: 'Yolcu Sayısı',
+        submit: 'Rezervasyon Oluştur',
+        check_reservation: 'Rezervasyonu kontrol et',
+        reservation: 'Rezervasyon',
+        status: 'Durum',
+        created_at: 'Oluşturulma Tarihi',
+        loading: 'Yükleniyor...',
+        success_message: 'Rezervasyon talebiniz oluşturuldu. Durumu "Rezervasyonum" sayfasından takip edebilirsiniz.',
+        error_existing_reservation: 'Mevcut bir rezervasyonunuz bulunmaktadır.',
+        error_past_date: 'Geçmiş tarih için rezervasyon oluşturamazsınız.',
+        error_invalid_data: 'Geçersiz veri gönderildi.',
+        error_server: 'Sunucu hatası.',
+        error_network: 'Bağlantı hatası.',
+        error_unknown: 'Bilinmeyen bir hata oluştu.',
+        error_reservation_not_found: 'Rezervasyon Bulunamadı',
+        placeholder_full_name: 'Adınızı ve soyadınızı girin',
+        placeholder_phone: '05678901234',
+        placeholder_pick_up_location: 'Nereden gideceksiniz?',
+        placeholder_drop_off_location: 'Nereye gideceksiniz?',
+      }
+    },
+    en: {
+      translation: {
+        reservation: 'Reservation',
+        my_reservation: 'My Reservation',
+        full_name: 'Full Name',
+        phone: 'Phone Number',
+        pick_up_location: 'Pick Up Location',
+        drop_off_location: 'Drop Off Location',
+        pick_up_date: 'Pick Up Date',
+        passenger_count: 'Passenger Count',
+        submit: 'Create Reservation',
+        check_reservation: 'Check Reservation',
+        status: 'Status',
+        created_at: 'Created At',
+        loading: 'Loading...',
+        success_message: 'Reservation request created successfully. You can track the status on the "My Reservation" page.',
+        error_existing_reservation: 'You already have a reservation.',
+        error_past_date: 'You cannot make a reservation for a past date.',
+        error_invalid_data: 'Invalid data submitted.',
+        error_server: 'Server error.',
+        error_network: 'Network error.',
+        error_unknown: 'An unknown error occurred.',
+        error_reservation_not_found: 'No reservation found.',
+        placeholder_full_name: 'Enter your full name',
+        placeholder_phone: '05678901234',
+        placeholder_pick_up_location: 'Where are you departing from?',
+        placeholder_drop_off_location: 'Where are you going?',
+      }
+    },
+    ru: {
+      translation: {
+        my_reservation: 'Моя Бронь',
+        full_name: 'Имя Фамилия',
+        phone: 'Номер телефона',
+        pick_up_location: 'Откуда',
+        drop_off_location: 'Куда',
+        pick_up_date: 'Дата и время',
+        passenger_count: 'Количество пассажиров',
+        submit: 'Запросить бронирование',
+        check_reservation: 'Проверить бронирование',
+        reservation: 'Забронировать',
+        status: 'Статус',
+        created_at: 'Дата создания',
+        loading: 'Загрузка...',
+        success_message: 'Заявка на бронирование успешно создана. Статус можно отслеживать на странице "Моя Бронь".',
+        error_existing_reservation: 'У вас уже есть бронь.',
+        error_past_date: 'Нельзя забронировать прошедшую дату.',
+        error_invalid_data: 'Отправлены неверные данные.',
+        error_server: 'Ошибка сервера.',
+        error_network: 'Ошибка соединения.',
+        error_unknown: 'Произошла неизвестная ошибка.',
+        placeholder_full_name: 'Введите имя и фамилию',
+        placeholder_phone: '05678901234',
+        placeholder_pick_up_location: 'Откуда вы едете?',
+        placeholder_drop_off_location: 'Куда вы едете?',
+      }
+    }
+  },
+  lng: navigator.language.split('-')[0],
+  fallbackLng: 'en',
+})
+
+export default i18n

@@ -1,0 +1,1 @@
+0 0 * * * cd /app && python manage.py delete_old_orders >> /var/log/cron.log 2>&1

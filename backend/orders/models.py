@@ -24,13 +24,6 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Sipariş'
         verbose_name_plural = 'Siparişler'
-        constraints = [
-            models.UniqueConstraint(
-                fields=('full_name', 'phone'),
-                name='unique_fullname_phone',
-                violation_error_message='Bu isim ve telefon zaten kayıtlıdır.'
-            )
-        ]
 
     def __str__(self):
         return f'{self.full_name}, Oluşturulma tarihi:{self.created_at}'
