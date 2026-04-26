@@ -49,14 +49,14 @@ const CheckReservation = () => {
                 />
               </Form.Group>
             </Col>
-            <Col md={12} className='my-2'>
+            <Col md={12} className='my-2 text-center'>
               <Button type='submit'>Check Reservation</Button>
             </Col>
           </Row>
         </Form>
       </Container>
 
-      {order && <ReservationDetailCard order={order} />}
+      {order ? <ReservationDetailCard order={order}/> :  <p className='text-center text-danger'>No reservation found.</p>}
     </>
   )
 }

@@ -22,6 +22,7 @@ const ReservationForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setMessage("Loading...")
     try{
     await api.post('orders/', {
       ...formData,
@@ -35,10 +36,12 @@ const ReservationForm = () => {
           setColor('danger')
           if (error.response.data?.phone){
             setMessage('You are have a reservation')
-          } else{
+          } 
+          else if(error.response.data?.pick_up_date){
+            setMessage('You cannot make a reservation for a past date.')
+          }else{
             setMessage('Invalid data submitted.')
           }
-           
         } else if (error.response.status >= 500) {
           setColor('warning')
           setMessage('Server error.')
