@@ -9,6 +9,12 @@ type Props = {
 const ReservationDetailCard = ({order}: Props) => {
   const { t } = useTranslation()
 
+  const statusMap : Record<string, String> = {
+    'pending': t('status_pending'),
+    'confirmed': t('status_confirmed'),
+    'refused': t('status_refused'),
+  }
+
   return (
     <Container className='mb-5'>
       <Card className='mt-4 shadow-sm gap-2'>
@@ -50,7 +56,7 @@ const ReservationDetailCard = ({order}: Props) => {
             </Col>
             <Col xs={6}>
               <small className='text-muted'>{t('status')}</small>
-              <p className='fw-bold mb-0'>{order.status}</p>
+              <p className='fw-bold mb-0'>{statusMap[order.status] || order.status}</p>
             </Col>
             <hr />
             <Col xs={6}>

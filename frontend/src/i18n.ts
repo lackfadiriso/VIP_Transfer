@@ -27,9 +27,12 @@ i18n.use(initReactI18next).init({
         error_unknown: 'Bilinmeyen bir hata oluştu.',
         error_reservation_not_found: 'Rezervasyon Bulunamadı',
         placeholder_full_name: 'Adınızı ve soyadınızı girin',
-        placeholder_phone: '05678901234',
+        placeholder_phone: '+90555444... (Örnek)',
         placeholder_pick_up_location: 'Nereden gideceksiniz?',
         placeholder_drop_off_location: 'Nereye gideceksiniz?',
+        status_pending: 'Beklemede',
+        status_confirmed: 'Onaylandi',
+        status_refused: 'Reddedildi',
       }
     },
     en: {
@@ -56,9 +59,12 @@ i18n.use(initReactI18next).init({
         error_unknown: 'An unknown error occurred.',
         error_reservation_not_found: 'No reservation found.',
         placeholder_full_name: 'Enter your full name',
-        placeholder_phone: '05678901234',
+        placeholder_phone: '+90555444... (Example)',
         placeholder_pick_up_location: 'Where are you departing from?',
         placeholder_drop_off_location: 'Where are you going?',
+        status_pending: 'Pending',
+        status_confirmed: 'Confirmed',
+        status_refused: 'Refused',
       }
     },
     ru: {
@@ -84,9 +90,12 @@ i18n.use(initReactI18next).init({
         error_network: 'Ошибка соединения.',
         error_unknown: 'Произошла неизвестная ошибка.',
         placeholder_full_name: 'Введите имя и фамилию',
-        placeholder_phone: '05678901234',
+        placeholder_phone: '+90555444... (Пример)',
         placeholder_pick_up_location: 'Откуда вы едете?',
         placeholder_drop_off_location: 'Куда вы едете?',
+        status_pending: 'В ожидании',
+        status_confirmed: 'Подтверждено',
+        status_refused: 'Отклонено',
       }
     }
   },
