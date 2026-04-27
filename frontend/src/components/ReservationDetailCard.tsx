@@ -36,7 +36,7 @@ const ReservationDetailCard = ({order}: Props) => {
             </Col>
             <hr />
             <Col xs={6}>
-              <small className='text-muted'>{t('drop _off_location')}</small>
+              <small className='text-muted'>{t('drop_off_location')}</small>
               <p className='fw-bold mb-0'>{order.drop_off_location}</p>
             </Col>
             <Col xs={6}>

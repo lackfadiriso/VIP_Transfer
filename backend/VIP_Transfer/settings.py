@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.1.6", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -61,6 +61,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
+    'http://192.168.1.6'
 ]
 
 ROOT_URLCONF = 'VIP_Transfer.urls'
