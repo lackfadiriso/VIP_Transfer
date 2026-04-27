@@ -60,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
+    'http://localhost',
 ]
 
 ROOT_URLCONF = 'VIP_Transfer.urls'
@@ -117,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle'
@@ -144,8 +146,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/static_backend/'
+STATIC_ROOT = BASE_DIR / 'static_backend'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
