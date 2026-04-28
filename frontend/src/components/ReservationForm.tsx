@@ -60,40 +60,40 @@ const ReservationForm = () => {
   }
 
   return (
-    <Container className='my-4 justify-content-center'>
+    <Container className='my-4 justify-content-center rounded-4 p-2'>
       <Form onSubmit={handleSubmit}>
         <Row>
-          <Col md={6}>
+          <Col md={12}>
             <Form.Group>
               <Form.Label>{t('full_name')}</Form.Label>
               <Form.Control type='text' name='full_name' value={formData.full_name} onChange={handleChange} placeholder={t('placeholder_full_name')} />
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={12}>
             <Form.Group>
               <Form.Label>{t('phone')}</Form.Label>
               <Form.Control type='tel' name='phone' value={formData.phone} onChange={handleChange} placeholder={t('placeholder_phone')} />
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={12}>
             <Form.Group>
               <Form.Label>{t('pick_up_location')}</Form.Label>
               <Form.Control type='text' name='pick_up_location' value={formData.pick_up_location} onChange={handleChange} placeholder={t('placeholder_pick_up_location')} />
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={12}>
             <Form.Group>
               <Form.Label>{t('drop_off_location')}</Form.Label>
               <Form.Control type='text' name='drop_off_location' value={formData.drop_off_location} onChange={handleChange} placeholder={t('placeholder_drop_off_location')} />
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={12}>
             <Form.Group>
               <Form.Label>{t('pick_up_date')}</Form.Label>
               <Form.Control type='datetime-local' name='pick_up_date' value={formData.pick_up_date} onChange={handleChange} />
             </Form.Group>
           </Col>
-          <Col md={6} className='mx-auto'>
+          <Col md={12} className='mx-auto'>
             <Form.Group className='text-center'>
               <Form.Label>{t('passenger_count')}</Form.Label>
               <div className='d-flex justify-content-center align-items-center gap-2'>

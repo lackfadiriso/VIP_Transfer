@@ -1,12 +1,15 @@
 import { useTranslation } from 'react-i18next'
+import { FaSun, FaMoon } from 'react-icons/fa'
+import useTheme from '../hooks/useTheme'
 
 const Header = () => {
     const { i18n, t } = useTranslation()
+    const { theme, setTheme } = useTheme()
 
   return (
-    <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
+    <nav className={`navbar navbar-expand-md navbar-dark ${theme == 'light' ? 'bg-dark' : 'light'}`}>
         <div className='container'>
-            <a className='navbar-brand' href='/'><span className='diamond-text fw-bold'>VIP</span> Transfer</a>
+            <a className='navbar-brand slide-in' href='/'><span className='diamond-text fw-bold'>VIP</span> Transfer</a>
 
             <button
                 className='navbar-toggler'
@@ -18,7 +21,7 @@ const Header = () => {
             </button>
 
             <div className='collapse navbar-collapse' id='navbarNav'>
-                <ul className='navbar-nav ms-auto'>
+                <ul className='navbar-nav ms-auto align-items-center'>
                     <li className='nav-item'>
                         <a className='nav-link' href='/'>{t('reservation')}</a>
                     </li>
@@ -51,6 +54,14 @@ const Header = () => {
                                 </button>
                             </li>
                         </ul>
+                    </li>
+                    <li className='nav-item ms-2'>
+                        <button 
+                            className='btn btn-link nav-link'
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        >
+                            {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
+                        </button>
                     </li>
                 </ul>
             </div>
