@@ -21,7 +21,7 @@ const Contacts = () => {
     <div>
         <a
         href="https://wa.me/905530819922"
-        style={{ ...btnStyle, bottom: '8rem' }}
+        style={{ ...btnStyle, bottom: '6rem' }}
         target="_blank"
         onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
         onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
@@ -29,7 +29,7 @@ const Contacts = () => {
         </a>
         <a 
         href="tel:+905530819922"
-        style={{ ...btnStyle, bottom: '4rem' }}
+        style={{ ...btnStyle, bottom: '2rem' }}
         target="_blank"
         onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
         onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
