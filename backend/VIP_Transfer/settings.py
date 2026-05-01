@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["192.168.1.6", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.1.102", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -61,7 +61,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
-    'http://192.168.1.6'
+    'http://192.168.1.102'
 ]
 
 ROOT_URLCONF = 'VIP_Transfer.urls'
@@ -125,14 +125,14 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.AnonRateThrottle'
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '10000/day'
+        'anon': '100/day'
     }
 }
 
 JAZZMIN_SETTINGS = {
-    'site_title': 'VIP Transfer',
-    'site_header': 'VIP Transfer',
-    'site_brand': 'VIP Transfer'
+    'site_title': 'Antalya VIP Transfer',
+    'site_header': 'Antalya VIP Transfer',
+    'site_brand': 'Antalya VIP Transfer'
 }
 
 LANGUAGE_CODE = 'TR-tr'
