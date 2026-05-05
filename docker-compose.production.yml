@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:16
+    env_file:
+      - ./backend/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - vip_network
+
+  backend:
+    image: lackfadiriso/vip-transfer-backend
+    build: ./backend
+    command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn VIP_Transfer.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./backend:/app
+      - static_volume:/app/static_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    networks:
+      - vip_network
+
+  frontend:
+    image: lackfadiriso/vip-transfer-frontend
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - vip_network
+    volumes:
+    - static_volume:/static_backend
+
+  cron:
+    build: ./backend
+    command: sh -c "crontab /app/crontab && cron -f"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    networks:
+      - vip_network
+
+volumes:
+  postgres_data:
+  static_volume:
+
+networks:
+  vip_network:
+    driver: bridge
