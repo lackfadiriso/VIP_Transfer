@@ -31,7 +31,7 @@ services:
     networks:
       - vip_network
     volumes:
-    - static_volume:/static_backend
+      - static_volume:/static_backend
     restart: always
 
   cron:

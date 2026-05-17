@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <nav className={`navbar navbar-expand-md navbar-dark ${theme == 'light' ? 'bg-dark' : 'light'}`}>
         <div className='container'>
-            <a className='navbar-brand slide-in' href='/'>Antalya <span className='diamond-text fw-bold'>VIP</span> Transfer</a>
+            <a className='navbar-brand slide-in' href='/'>Mahmutlar <span className='diamond-text fw-bold'>VIP</span> Transfer</a>
 
             <button
                 className='navbar-toggler'
