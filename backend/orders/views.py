@@ -5,9 +5,9 @@ from django.core.mail import EmailMultiAlternatives
 from django_filters.rest_framework import DjangoFilterBackend
 from django.template.loader import render_to_string
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
-from rest_framework.permissions import AllowAny, IsAdminUser
 
 from .filters import FilterOrder
+from api.mixins import AdminOrReadOnlyMixin
 from .models import NotificationEmails, Order
 from .serializer import OrderSerializer, MyOrdersSerializer
 
@@ -35,14 +35,9 @@ def send_mail_owner(order):
         msg.send()
 
 
-class OrderViewSet(ModelViewSet):
+class OrderViewSet(ModelViewSet, AdminOrReadOnlyMixin):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-
-    def get_permissions(self):
-        if self.action in ['list', 'destroy', 'update', 'partial_update']:
-            return [IsAdminUser()]
-        return [AllowAny()]
 
     def perform_create(self, serializer):
         order = serializer.save()

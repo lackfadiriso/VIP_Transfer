@@ -6,4 +6,12 @@ from orders.models import Order
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        Order.objects.filter(pick_up_date__lt=timezone.now()).delete()
+        Order.objects.filter(
+            return_date__isnull=True,
+            pick_up_date__lt=timezone.now()
+        ).delete()
+
+        Order.objects.filter(
+            return_date__isnull=False,
+            return_date__lt=timezone.now()
+        ).delete()

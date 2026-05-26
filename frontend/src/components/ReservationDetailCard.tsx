@@ -9,12 +9,6 @@ type Props = {
 const ReservationDetailCard = ({order}: Props) => {
   const { t } = useTranslation()
 
-  const statusMap : Record<string, String> = {
-    'pending': t('status_pending'),
-    'confirmed': t('status_confirmed'),
-    'refused': t('status_refused'),
-  }
-
   return (
     <Container className='mb-5'>
       <Card className='mt-4 shadow-sm gap-2'>
@@ -32,7 +26,7 @@ const ReservationDetailCard = ({order}: Props) => {
               <p className='fw-bold mb-0'>{order.full_name}</p>
             </Col>
             <hr />
-            <Col xs={6} className=''>
+            <Col xs={6}>
               <small className='text-muted'>{t('phone')}</small>
               <p className='fw-bold mb-0'>{order.phone}</p>
             </Col>
@@ -54,10 +48,12 @@ const ReservationDetailCard = ({order}: Props) => {
               <small className='text-muted'>{t('passenger_count')}</small>
               <p className='fw-bold mb-0'>{order.passenger_count}</p>
             </Col>
+            { order.return_date &&
             <Col xs={6}>
-              <small className='text-muted'>{t('status')}</small>
-              <p className='fw-bold mb-0'>{statusMap[order.status] || order.status}</p>
+              <small className='text-muted'>{t('return_date')}</small>
+              <p className='fw-bold mb-0'>{new Date(order.return_date).toLocaleString('tr-TR')}</p>
             </Col>
+            }
             <hr />
             <Col xs={6}>
               <small className='text-muted'>{t('created_at')}</small>

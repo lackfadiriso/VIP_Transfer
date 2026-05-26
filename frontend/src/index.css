@@ -1,36 +1,93 @@
-.diamond-text {
-  background: linear-gradient(135deg, #535edb, #dfefff, #ffffff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 html, body, #root {
   height: 100%;
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg) !important; 
   color: var(--text);
 }
 
 body {
-  --bg: rgba(102, 126, 235, 0.422);
-  --text: #000000;
+  --bg: #F4F3EF;
+  --text: #0A192F;
+  --card-bg: rgba(255, 255, 255, 0.7);
 }
 
 body.dark {
-  --bg: #090916;
-  --text: #e0e0e0;
+  --bg: #121214;
+  --text: #F4F5F6;
+  --card-bg: rgba(28, 28, 30, 0.7);
+}
+body.dark .text-muted {
+  color: #a0a0a0 !important;
 }
 
-.light {
-  background-color: rgba(102, 126, 235, 0.422);;
+body h1, h2{
+  user-select: none;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header, .navbar {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header a, .navbar a {
+  text-align: center;
+  color: var(--text) !important;
+}
+header a:hover, .navbar a:hover {
+  color: #FFD700 !important;
+  transition: color 0.3s ease;
+  font-size: 105%;
+}
+
+.form-container {
+  background-color: var(--card-bg) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.price-card {
+  transition: all 0.2s ease;
+  user-select: none;
+  border-radius: var(--bs-border-radius) !important;
+}
+
+.price-card:hover {
+  border-color: var(--bs-primary) !important;
+  background-color: burlywood;
+  transform: translateY(-2px);
 }
 
 @keyframes slideIn {
-  from { transform: translateX(-300px); opacity: 0;}
-  to { transform: translateX(0); opacity: 1;}
+  from { transform: translateX(-400px);}
+  to { transform: translateX(0);}
 }
 
-.slide-in{
-  animation: slideIn 0.8s ease-out;
+.background-image{
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.car {
+  background-image: url('move.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px;
+  height: 100px;
+  animation: slideIn 1s ease-out;
+  opacity: 100%;
+}
+
+.w-fit {
+  width: fit-content
+  !important
 }

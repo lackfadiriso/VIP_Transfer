@@ -7,32 +7,36 @@ import api from '../services/api'
 
 const CheckReservation = () => {
   const { t } = useTranslation()
-  const [fullName, setFullName] = useState('')
-  const [phone, setPhone] = useState('')
+  const [fullName, setFullName] = useState<string>(localStorage.getItem('name') || '')
+  const [phone, setPhone] = useState<string>(localStorage.getItem('phone') || '')
   const [order, setOrder] = useState<OrderDetail | null>(null)
-  const [message, setMessage] = useState<string>('')
+  const [message, setMessage] = useState<string | null>(null)
 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setMessage(t('loading'))
-    const response = await api.get('my-orders/', {
-      params: {
-        phone: phone,
-        full_name: fullName
-      }
-    })
-    if (!order){
+    try{
+      const response = await api.get('my-orders/', {
+        params: {
+          phone: phone,
+          full_name: fullName
+        }
+      })
+      setOrder(response.data[0])
+      setMessage('')
+    }
+    catch (error: any){
       setMessage(t('error_reservation_not_found'))
     }
-
-    console.log(response.data)
-    setOrder(response.data[0])
   }
 
   return (
-    <>
-      <Container className='my-2'>
+    <div className='mt-10'>
+      {order ? <ReservationDetailCard order={order}/> :
+      (<Container>
+        <Row className='justify-content-center'>
+        <Col md={6}>
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col md={6}>
@@ -51,8 +55,8 @@ const CheckReservation = () => {
                 <Form.Label>{t('phone')}</Form.Label>
                 <Form.Control
                   type='text'
-                  placeholder='05678901234'
-                  value={phone}
+                  placeholder='056789012**'
+                  value={phone.trim()}
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </Form.Group>
@@ -62,10 +66,12 @@ const CheckReservation = () => {
             </Col>
           </Row>
         </Form>
-      </Container>
-
-      {order ? <ReservationDetailCard order={order}/> : <p className='text-center text-danger'>{message}</p>}
-    </>
+      </Col>
+      </Row>
+      </Container>)}
+      {message && <p className='text-center text-danger'>{message}</p>}
+      
+    </div>
   )
 }
 

@@ -14,6 +14,7 @@ services:
     volumes:
       - ./backend:/app
       - static_volume:/app/static_backend
+      - media_volume:/app/media/
     ports:
       - "8000:8000"
     env_file:
@@ -32,7 +33,8 @@ services:
     networks:
       - vip_network
     volumes:
-    - static_volume:/static_backend
+      - static_volume:/static_backend
+      - media_volume:/app/media/
 
   cron:
     build: ./backend
@@ -43,10 +45,12 @@ services:
       - db
     networks:
       - vip_network
+    restart: always
 
 volumes:
   postgres_data:
   static_volume:
+  media_volume:
 
 networks:
   vip_network:

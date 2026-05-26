@@ -26,15 +26,15 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.102", "localhost", "127.0.0.1", "158.160.244.222"]
-
+ALLOWED_HOSTS = ["192.168.1.6", "localhost", "127.0.0.1", "158.160.244.222"]
 
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,10 +45,20 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'rest_framework',
+
+    'api',
     'orders',
+    'pages'
+]
+
+LANGUAGES = [
+    ('tr', 'Türkçe'),
+    ('en', 'English'),
+    ('ru', 'Русский'),
 ]
 
 MIDDLEWARE = [
+    'django.middleware.locale.LocaleMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -61,8 +71,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
-    'http://192.168.1.102',
-    "158.160.244.222"
+    'http://192.168.1.6',
+    "http://158.160.244.222"
 ]
 
 ROOT_URLCONF = 'VIP_Transfer.urls'
@@ -136,7 +146,7 @@ JAZZMIN_SETTINGS = {
     'site_brand': 'Mahmutlar VIP Transfer'
 }
 
-LANGUAGE_CODE = 'TR-tr'
+LANGUAGE_CODE = 'tr'
 
 TIME_ZONE = 'Europe/Istanbul'
 
@@ -150,6 +160,9 @@ USE_TZ = True
 
 STATIC_URL = '/static_backend/'
 STATIC_ROOT = BASE_DIR / 'static_backend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

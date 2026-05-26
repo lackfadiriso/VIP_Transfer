@@ -5,18 +5,44 @@ i18n.use(initReactI18next).init({
   resources: {
     tr: {
       translation: {
+        // Navigasyon
+        reservation: 'Rezervasyon',
         my_reservation: 'Rezervasyonum',
+        price_list: 'Fiyat Listesi',
+
+        // Ana Sayfa
+        hero_title: 'Güvenli & Konforlu Yolculuk',
+        hero_subtitle: 'Profesyonel VIP Transfer Hizmetleri',
+        about: 'Hakkımızda',
+        years_experience: 'Yıl Deneyim',
+        transfer_cars: 'Transfer Araçlarımız',
+        satisfied_customers: 'Memnun Müşteri',
+
+        // Form
+        one_way: 'Tek Yön',
+        two_way: 'Gidiş Dönüş',
+        two_way_button: 'Geri Dönüş Ekle',
         full_name: 'Ad Soyad',
         phone: 'Telefon Numarası',
         pick_up_location: 'Nereden',
         drop_off_location: 'Nereye',
-        pick_up_date: 'Tarih ve Saat',
+        pick_up_date: 'Alınış Tarihi ve Saati',
+        return_date: 'Dönüş Tarihi ve Saati',
         passenger_count: 'Yolcu Sayısı',
         submit: 'Rezervasyon Oluştur',
-        check_reservation: 'Rezervasyonu kontrol et',
-        reservation: 'Rezervasyon',
-        status: 'Durum',
+        check_reservation: 'Rezervasyonu Kontrol Et',
+
+        // Placeholder
+        placeholder_full_name: 'Adınızı ve soyadınızı girin',
+        placeholder_phone: '+90555444... (Örnek)',
+        placeholder_pick_up_location: 'Nereden gideceksiniz?',
+        placeholder_drop_off_location: 'Nereye gideceksiniz?',
+
+        // Rezervasyon Detay
         created_at: 'Oluşturulma Tarihi',
+        status_confirmed: 'Onaylandı',
+
+        // Mesajlar
         loading: 'Yükleniyor...',
         success_message: 'Rezervasyon talebiniz oluşturuldu. Durumu "Rezervasyonum" sayfasından takip edebilirsiniz.',
         error_existing_reservation: 'Mevcut bir rezervasyonunuz bulunmaktadır.',
@@ -26,29 +52,48 @@ i18n.use(initReactI18next).init({
         error_network: 'Bağlantı hatası.',
         error_unknown: 'Bilinmeyen bir hata oluştu.',
         error_reservation_not_found: 'Rezervasyon Bulunamadı',
-        placeholder_full_name: 'Adınızı ve soyadınızı girin',
-        placeholder_phone: '+90555444... (Örnek)',
-        placeholder_pick_up_location: 'Nereden gideceksiniz?',
-        placeholder_drop_off_location: 'Nereye gideceksiniz?',
-        status_pending: 'Beklemede',
-        status_confirmed: 'Onaylandi',
-        status_refused: 'Reddedildi',
       }
     },
     en: {
       translation: {
+        // Navigation
         reservation: 'Reservation',
         my_reservation: 'My Reservation',
+        price_list: 'Price List',
+
+        // Home
+        hero_title: 'Safe & Comfortable Travel',
+        hero_subtitle: 'Professional VIP Transfer Services',
+        about: 'About Us',
+        transfer_cars: 'Transfer Cars',
+        satisfied_customers: 'Satisfied Customers',
+        years_experience: 'Years Experience',
+
+        // Form
+        one_way: 'One-Way',
+        two_way: 'Two-Way',
+        two_way_button: 'Add Return Trip',
         full_name: 'Full Name',
         phone: 'Phone Number',
         pick_up_location: 'Pick Up Location',
         drop_off_location: 'Drop Off Location',
         pick_up_date: 'Pick Up Date',
+        return_date: 'Return Date',
         passenger_count: 'Passenger Count',
         submit: 'Create Reservation',
         check_reservation: 'Check Reservation',
-        status: 'Status',
+
+        // Placeholders
+        placeholder_full_name: 'Enter your full name',
+        placeholder_phone: '+90555444... (Example)',
+        placeholder_pick_up_location: 'Where are you departing from?',
+        placeholder_drop_off_location: 'Where are you going?',
+
+        // Reservation Detail
         created_at: 'Created At',
+        status_confirmed: 'Confirmed',
+
+        // Messages
         loading: 'Loading...',
         success_message: 'Reservation request created successfully. You can track the status on the "My Reservation" page.',
         error_existing_reservation: 'You already have a reservation.',
@@ -58,29 +103,48 @@ i18n.use(initReactI18next).init({
         error_network: 'Network error.',
         error_unknown: 'An unknown error occurred.',
         error_reservation_not_found: 'No reservation found.',
-        placeholder_full_name: 'Enter your full name',
-        placeholder_phone: '+90555444... (Example)',
-        placeholder_pick_up_location: 'Where are you departing from?',
-        placeholder_drop_off_location: 'Where are you going?',
-        status_pending: 'Pending',
-        status_confirmed: 'Confirmed',
-        status_refused: 'Refused',
       }
     },
     ru: {
       translation: {
+        // Навигация
+        reservation: 'Забронировать',
         my_reservation: 'Моя Бронь',
+        price_list: 'Прайс-лист',
+
+        // Главная
+        hero_title: 'Безопасное & Комфортное Путешествие',
+        hero_subtitle: 'Профессиональные VIP Трансфер Услуги',
+        about: 'О Нас',
+        years_experience: 'Лет опыта',
+        transfer_cars: 'Трансферные автомобили',
+        satisfied_customers: 'Довольных клиентов', 
+
+        // Форма
+        one_way: 'В одну сторону',
+        two_way: 'Туда и обратно',
+        two_way_button: 'Добавить Обратный Маршрут',
         full_name: 'Имя Фамилия',
         phone: 'Номер телефона',
         pick_up_location: 'Откуда',
         drop_off_location: 'Куда',
-        pick_up_date: 'Дата и время',
+        pick_up_date: 'Дата и время поездки',
+        return_date: 'Дата и время обратного рейса',
         passenger_count: 'Количество пассажиров',
         submit: 'Запросить бронирование',
         check_reservation: 'Проверить бронирование',
-        reservation: 'Забронировать',
-        status: 'Статус',
+
+        // Плейсхолдеры
+        placeholder_full_name: 'Введите имя и фамилию',
+        placeholder_phone: '+90555444... (Пример)',
+        placeholder_pick_up_location: 'Откуда вы едете?',
+        placeholder_drop_off_location: 'Куда вы едете?',
+
+        // Детали брони
         created_at: 'Дата создания',
+        status_confirmed: 'Подтверждено',
+
+        // Сообщения
         loading: 'Загрузка...',
         success_message: 'Заявка на бронирование успешно создана. Статус можно отслеживать на странице "Моя Бронь".',
         error_existing_reservation: 'У вас уже есть бронь.',
@@ -89,17 +153,11 @@ i18n.use(initReactI18next).init({
         error_server: 'Ошибка сервера.',
         error_network: 'Ошибка соединения.',
         error_unknown: 'Произошла неизвестная ошибка.',
-        placeholder_full_name: 'Введите имя и фамилию',
-        placeholder_phone: '+90555444... (Пример)',
-        placeholder_pick_up_location: 'Откуда вы едете?',
-        placeholder_drop_off_location: 'Куда вы едете?',
-        status_pending: 'В ожидании',
-        status_confirmed: 'Подтверждено',
-        status_refused: 'Отклонено',
+        error_reservation_not_found: 'Бронирование не найдено',
       }
     }
   },
-  lng: navigator.language.split('-')[0],
+  lng: localStorage.getItem('lang') || navigator.language.split('-')[0],
   fallbackLng: 'en',
 })
 

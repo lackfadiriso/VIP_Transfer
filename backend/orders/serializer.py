@@ -5,13 +5,6 @@ from .models import Order
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    passenger_count = serializers.IntegerField(min_value=1)
-
-    def validate_pick_up_date(self, value):
-        if value.date() < date.today():
-            raise serializers.ValidationError('Geçmiş tarih seçilemez.')
-        return value
-
     class Meta:
         model = Order
         fields = [
@@ -21,7 +14,25 @@ class OrderSerializer(serializers.ModelSerializer):
             'drop_off_location',
             'pick_up_date',
             'passenger_count',
+            'return_date'
         ]
+
+    passenger_count = serializers.IntegerField(min_value=1)
+
+    def validate(self, data):
+        if data.get('phone'):
+            data['phone'] = data['phone'].strip()
+        return data
+
+    def validate_phone(self, value):
+        if Order.objects.filter(phone=value.strip()).exists():
+            raise serializers.ValidationError('existing_reservation')
+        return value.strip()
+
+    def validate_pick_up_date(self, value):
+        if value.date() < date.today():
+            raise serializers.ValidationError('Geçmiş tarih seçilemez.')
+        return value
 
 
 class MyOrdersSerializer(serializers.ModelSerializer):

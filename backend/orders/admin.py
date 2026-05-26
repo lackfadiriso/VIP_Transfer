@@ -12,6 +12,7 @@ class OrderAdmin(admin.ModelAdmin):
         'full_name',
         'pick_up_location',
         'drop_off_location',
+        'return_date',
         'pick_up_date',
         'created_at',
     )
