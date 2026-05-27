@@ -31,6 +31,8 @@ i18n.use(initReactI18next).init({
         passenger_count: 'Yolcu Sayısı',
         submit: 'Rezervasyon Oluştur',
         check_reservation: 'Rezervasyonu Kontrol Et',
+        select_on_map: 'Haritadan Seç',
+        map_click_hint: 'Konumu seçmek için haritaya tıklayın',
 
         // Placeholder
         placeholder_full_name: 'Adınızı ve soyadınızı girin',
@@ -82,6 +84,8 @@ i18n.use(initReactI18next).init({
         passenger_count: 'Passenger Count',
         submit: 'Create Reservation',
         check_reservation: 'Check Reservation',
+        select_on_map: 'Select on Map',
+        map_click_hint: 'Click on the map to select a location',
 
         // Placeholders
         placeholder_full_name: 'Enter your full name',
@@ -118,7 +122,7 @@ i18n.use(initReactI18next).init({
         about: 'О Нас',
         years_experience: 'Лет опыта',
         transfer_cars: 'Трансферные автомобили',
-        satisfied_customers: 'Довольных клиентов', 
+        satisfied_customers: 'Довольных клиентов',
 
         // Форма
         one_way: 'В одну сторону',
@@ -133,6 +137,8 @@ i18n.use(initReactI18next).init({
         passenger_count: 'Количество пассажиров',
         submit: 'Запросить бронирование',
         check_reservation: 'Проверить бронирование',
+        select_on_map: 'Выбрать на карте',
+        map_click_hint: 'Нажмите на карту, чтобы выбрать местоположение',
 
         // Плейсхолдеры
         placeholder_full_name: 'Введите имя и фамилию',
