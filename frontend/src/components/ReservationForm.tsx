@@ -130,7 +130,10 @@ const ReservationForm = () => {
   }, { dependencies: [checkReservation], scope: containerRef })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const value = e.target.name === 'phone'
+    ? e.target.value.replace(/\s/g, '')
+    : e.target.value
+    setFormData({ ...formData, [e.target.name]: value })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -155,6 +158,7 @@ const ReservationForm = () => {
       localStorage.setItem('name', formData.full_name)
       localStorage.setItem('phone', formData.phone)
       navigate('/check-reservation')
+      window.location.reload()
 
     } catch (error: any) {
       if (error.response) {

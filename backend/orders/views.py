@@ -23,7 +23,8 @@ def send_mail_owner(order):
             'pick_up_location': order.pick_up_location,
             'drop_off_location': order.drop_off_location,
             'passenger_count': order.passenger_count,
-            'pick_up_date': order.pick_up_date
+            'pick_up_date': order.pick_up_date,
+            'return_date': order.return_date
         })
         msg = EmailMultiAlternatives(
             subject='Yeni Sipariş',
